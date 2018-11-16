@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>京麦工作台</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/jmt.css">
+    <script src="js/jquery.min.js"></script>
+    <script>
+        $(function(){
+            console.log($(".ol1 li"));
+            $(".ol1 li").click(function(){
+                console.log($(".ol1 li").index());
+                $(".ul2").animate({"left":($(this).index())*-1456});
+                $(".ol1 li").removeClass("now");
+                $(this).addClass("now");
+                $(".down a").removeClass("now");
+                $(".down a").eq($(this).index()).addClass("now");
+            })
+            $(".down a").hover(function(){
+                $(".ul2").animate({"left":($(this).index())*-1456});
+                $(".ol1 li").removeClass("now");
+                $(".down a").removeClass("now");
+                $(this).addClass("now");
+                $(".ol1 li").eq($(this).index()).addClass("now");
+            })
+            $(window).scroll(function(){
+                if ($(this).scrollTop()<500){
+                    $(".header1").css({"top":-120})
+                }else if ($(this).scrollTop()>500){
+                    $(".header1").css({"top":0})
+                }
+            })
+        })
+    </script>
+</head>
+<body>
+<header class="header1">
+    <div class="inner">
+        <div class="logo">
+            <a href="jmt.html">
+                京麦工作台
+            </a>
+        </div>
+        <ul class="ul1 fr">
+            <li>
+                <a href="">京东商家后台</a>
+                <i class="line"></i>
+            </li>
+            <li>
+                <a href="">京麦插件</a>
+                <i class="line"></i>
+            </li>
+            <li>
+                <a href="">下载</a>
+                <i class="line"></i>
+            </li>
+            <li>
+                <a href="">开发者中心</a>
+                <i class="line"></i>
+            </li>
+            <li>
+                <a href="">更多</a>
+                <i class="line"></i>
+            </li>
+        </ul>
+    </div>
+</header>
+<div class="header">
+    <canvas id="canvas" width="100%" height="768"></canvas>
+    <header>
+        <div class="inner">
+            <div class="logo">
+                <a href="jmt.html">
+                    京麦工作台
+                </a>
+            </div>
+            <ul class="ul1 fr">
+                <li>
+                    <a href="">京东商家后台</a>
+                    <i class="line"></i>
+                </li>
+                <li>
+                    <a href="">京麦插件</a>
+                    <i class="line"></i>
+                </li>
+                <li>
+                    <a href="">下载</a>
+                    <i class="line"></i>
+                </li>
+                <li>
+                    <a href="">开发者中心</a>
+                    <i class="line"></i>
+                </li>
+                <li>
+                    <a href="">更多</a>
+                    <i class="line"></i>
+                </li>
+            </ul>
+        </div>
+    </header>
+    <div class="banner-cont">
+        <div class="jin">
+            <img src="img/title.png" alt="">
+            <div class="down">
+                <a class="now" href="">移动端下载</a>
+                <a href="">  Win版
+                <span>（京麦+咚咚）</span></a>
+                <a href="">Mac版</a>
+            </div>
+        </div>
+        <div class="warp">
+            <ul class="ul2">
+                <li class="li1">
+                    <div class="i1">
+                        <i></i>
+                        <p>APP扫描二维码</p>
+                    </div>
+                </li>
+                <li class="li2"></li>
+                <li class="li3"></li>
+            </ul>
+            <ol class="ol1">
+                <li class="now"></li>
+                <li></li>
+                <li></li>
+            </ol>
+        </div>
+    </div>
+</div>
+<div class="cont">
+    <div class="inner">
+        <div class="ying">
+            <p>精品应用</p>
+            <i></i>
+        </div>
+        <ul class="ul4 clear">
+            <li>
+                <img src="img/IsvPluginIcon1.0.929.png" alt="">
+                <p class="yy-title">京麦咚咚助手</p>
+                <p>访客订单详情/访客浏览记录/<br>
+                    添加备注/核对地址/<br>
+                    快递信息/修改运费
+                </p>
+                <div class="dg">立即订购</div>
+            </li>
+            <li>
+                 <img src="img/IsvPluginIcon1.0.899.png" alt="">
+                <p class="yy-title">传美打印</p>
+                <p>订单导入出/电子面单/<br>
+                    快递对账/发货单打印/<br>
+                    批量出库/收货地修改打印
+                </p>
+                <div class="dg">立即订购</div>
+            </li>
+            <li>
+                 <img src="img/IsvPluginIcon1.0.620.png" alt="">
+                <p class="yy-title">中云商品</p>
+                <p>购物车数据/商品模板/<br>
+                    排名分析/竞品跟踪/<br>
+                    跨点热词/商品搬家
+                </p>
+                <div class="dg">立即订购</div>
+            </li>
+            <li>
+                 <img src="img/IsvPluginIcon1.0.976.png" alt="">
+                <p class="yy-title">好麦商品</p>
+                <p>免费引流/手机关联板式/<br>
+                    违禁词检查/提升复购/<br>
+                    标题、广告语批量修改
+                </p>
+                <div class="dg">立即订购</div>
+            </li>
+            <li>
+                 <img src="img/5b85ebefNceb22376.png" alt="">
+                <p class="yy-title">旺店会员</p>
+                <p>会员权益/会员互动/<br>
+                    积分商城/品牌故事
+                </p>
+                <div class="dg">立即订购</div>
+            </li>
+            <li>
+                 <img src="img/IsvPluginIcon1.0.896.png" alt="">
+                <p class="yy-title">京牛推广</p>
+                <p>店铺引流/会员营销/广点通<br>
+                    渠道引流/京挑客渠道引流/<br>
+                    /中国联通渠道引流
+                </p>
+                <div class="dg">立即订购</div>
+            </li>
+            <li>
+                 <img src="img/IsvPluginIcon1.0.830 (1).png" alt="">
+                <p class="yy-title">京东商智</p>
+                <p>数据分析/智能运营/<br>
+                    创意营销
+                </p>
+                <div class="dg">立即订购</div>
+            </li>
+            <li>
+                 <img src="img/IsvPluginIcon1.0.904.png" alt="">
+                <p class="yy-title">流量超市</p>
+                <p>精准投放/网络达人推广/<br>
+                    无线流量/提升搜索权重/<br>
+                    店铺搜索流量引入
+                </p>
+                <div class="dg">立即订购</div>
+            </li>
+            <li>
+                 <img src="img/IsvPluginIcon1.0.972.png" alt="">
+                <p class="yy-title">蚂蚁绩效</p>
+                <p>客服绩效/催单绩效/退款/<br>
+                    分析/接待记录/风险预警/<br>
+                    快递信息/修改运费
+                </p>
+                <div class="dg">立即订购</div>
+            </li>
+            <li>
+                 <img src="img/IsvPluginIcon1.0.611.png" alt="">
+                <p class="yy-title">中云交易</p>
+                <p>货号查订单/利润分析/会员<br>
+                    关怀/短信营销/订单管理
+                </p>
+                <div class="dg">立即订购</div>
+            </li>
+            <li>
+                 <img src="img/IsvPluginIcon1.0.687.png" alt="">
+                <p class="yy-title">无线营销</p>
+                <p>微信抽奖/购物车营销/<br>
+                    优惠券营销/会员营销/<br>
+                    RMF/促销效果分析
+                </p>
+                <div class="dg">立即订购</div>
+            </li>
+            <li>
+                 <img src="img/IsvPluginIcon1.0.898.png" alt="">
+                <p class="yy-title">京东字库</p>
+                <p>避免字库版权追责/<br>
+                    免费字库/精品字库/全字库
+                </p>
+                <div class="dg">立即订购</div>
+            </li>
+        </ul>
+        <div class="ying video">
+            <p>精品应用</p>
+            <i></i>
+        </div>
+        <ul class="ul5 clear">
+            <li>
+                <img src="img/jmsite1.0.4.png" alt="">
+                <div class="mask"></div>
+                <i class="play"></i>
+                <p class="layer">
+                    商家如何玩转购物车营销
+                </p>
+            </li>
+            <li>
+                <img src="img/jmsite1.0.5.png" alt="">
+                <div class="mask"></div>
+                <i class="play"></i>
+                <p class="layer">
+                    京东引入微信流量就是这么简单
+                </p>
+            </li>
+            <li>
+                <img src="img/jmsite1.0.6.png" alt="">
+                <div class="mask"></div>
+                <i class="play"></i>
+                <p class="layer">
+                    京麦-打印京东快递操作演示
+                </p>
+            </li>
+            <li>
+                <img src="img/jmsite1.0.7.png" alt="">
+                <div class="mask"></div>
+                <i class="play"></i>
+                <p class="layer">
+                    好生意从商品管理开始
+                </p>
+            </li>
+        </ul>
+    </div>
+</div>
+<footer>
+    <div class="inner">
+        <div class="footer-top clear">
+            <div class="footer-left">
+                <dl>
+                    <dt>新手上路</dt>
+                    <dd>
+                        <a href="">新手指南</a>
+                    </dd>
+                </dl>
+                <dl>
+                    <dt>我是商家</dt>
+                    <dd>
+                        <a href="">订购服务</a>
+                    </dd>
+                    <dd>
+                        <a href="">使用服务</a>
+                    </dd>
+                </dl>
+                <dl>
+                    <dt>交易保障</dt>
+                    <dd>
+                        <a href="">服务期限</a>
+                    </dd>
+                    <dd>
+                        <a href="">售后服务</a>
+                    </dd>
+                </dl>
+                <dl>
+                    <dt>我是服务商</dt>
+                    <dd>
+                        <a href="">成为服务商</a>
+                    </dd>
+                    <dd>
+                        <a href="">管理服务</a>
+                    </dd>
+                </dl>
+            </div>
+            <div class="footer-right fr">
+                <a class="red" href="">
+                    <i class="ew"></i>
+                    <p>京麦下载</p>
+                </a>
+                <a class="blue" href="">
+                    <i class="ew"></i>
+                    <p>京麦论坛</p>
+                </a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="bq">
+                <span>Copyright 2004-2016 京东JD.com版权所有</span>
+                <span>京东旗下网站：京麦工作台官网</span>
+            </p>
+            <ul class="ul6">
+                <li>京东</li>
+                <li>京东商家后台</li>
+                <li>京东商智</li>
+                <li>京东商学院</li>
+                <li>帮助中心</li>
+            </ul>
+        </div>
+    </div>
+</footer>
+<script>
+    (function (window, undefined) {
+        var canvas = document.getElementById('canvas')
+        var ctx = canvas.getContext('2d')
+        var canvasW = $(document).width()-20;
+        var canvasH = window.innerHeight
+        var particles = []
+        var maxParticles = 500
+
+        var random = function (min, max) {
+            return Math.random() * (max - min) + min
+        }
+
+        window.requestAnimationFrame = (function () {
+            var FPS = 60
+
+            return window.requestAnimationFrame  ||
+                    window.webkitRequestAnimationFrame ||
+                    window.mozRequestAnimationFrame ||
+                    window.oRequestAnimationFrame ||
+                    window.msRequestAnimationFrame ||
+                    function (callBack) {
+                        window.setTimeout(callBack, 1000/FPS)
+                    }
+        })()
+
+        var Particle = function () {
+            this.x = Math.random() * canvasW
+            this.y = Math.random() * canvasH
+            this.r = random(1, 5)
+            this.alpha = random(0.3, 1)
+            this.velocity = {
+                x: random(-0.35, 0.35),
+                y: random(0.75, 1.5)
+            }
+
+            this.draw = function () {
+                ctx.fillStyle = 'rgba(255, 255, 255, '+this.alpha+')'
+                ctx.beginPath()
+                ctx.arc(this.x, this.y, this.r, 0, 2 * Math.PI, false)
+                ctx.closePath()
+                ctx.fill()
+            }
+
+            this.moving = function () {
+                this.x += this.velocity.x
+                this.y += this.velocity.y
+
+                if (this.y > canvasH) {
+                    this.x = Math.random() * canvasW
+                    this.y = 0
+                }
+
+                this.draw()
+            }
+        }
+
+        init()
+
+        function init() {
+            canvas.width = canvasW
+            canvas.height = canvasH
+
+            for (var i = 0; i < maxParticles; i++) {
+                particles.push(new Particle())
+            }
+
+            animate()
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, canvasW, canvasH)
+            particles.forEach(function (particle) {
+                particle.moving()
+            })
+
+            requestAnimationFrame(animate)
+        }
+    })(window)
+
+</script>
+</body>
+</html>

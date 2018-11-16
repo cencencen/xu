@@ -1,0 +1,1336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>京东PLUS会员</title>
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="iconfont/font_ovonboivus/iconfont.css">
+    <link rel="stylesheet" href="iconfont/font_yz5exxzj4t/iconfont.css">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/plus.css">
+    <script src="js/jquery.min.js"></script>
+    <script>
+        $(function(){
+            $(".next").click(function(){
+                if($(".warp ul").position().left<-300){
+                    $(".warp ul").animate({"left":0 })
+                }else {
+                    $(".warp ul").animate({"left":$(".warp ul").position().left -148})
+                }
+            });
+            $(".prev").click(function(){
+                if($(".warp ul").position().left>-74){
+                    $(".warp ul").animate({"left":-444 })
+                }else {
+                    $(".warp ul").animate({"left":$(".warp ul").position().left +148})
+                }
+            });
+            var index=0;
+            $(".page2 li").delay(500).hover(function(){
+                index=$(this).index();
+                $(".page2 li").removeClass("now");
+                $(this).addClass("now");
+                $(".img2 li").removeClass("now");
+                $(".img2 li").eq(index).addClass("now");
+            })
+            setInterval(function(){
+                index++;
+                if(index>$(".page2 li").size()-1){
+                    index=0;
+                }
+                $(".page2 li").removeClass("now");
+                $(".page2 li").eq(index).addClass("now");
+                $(".img2 li").removeClass("now");
+                $(".img2 li").eq(index).addClass("now");
+            },2000)
+            $(".next2").click(function(){
+                if ($(".ul5").position().left>=0){
+                    $(".ul5").animate({"left":-740});
+                    $(".page1 li").removeClass("now");
+                    $(".page1 li").eq(1).addClass("now")
+                }else {
+                    $(".ul5").animate({"left":40})
+                    $(".page1 li").removeClass("now");
+                    $(".page1 li").eq(0).addClass("now")
+                }
+            })
+            $(".prev2").click(function(){
+                console.log($(".ul5").position().left);
+                if ($(".ul5").position().left<=-740){
+                    $(".ul5").animate({"left":40})
+                    $(".page1 li").removeClass("now");
+                    $(".page1 li").eq(0).addClass("now")
+                }else {
+
+                    $(".ul5").animate({"left":-740});
+                    $(".page1 li").removeClass("now");
+                    $(".page1 li").eq(1).addClass("now")
+                }
+            })
+            $(window).scroll(function(){
+                console.log($(this).scrollTop());
+                if ($(this).scrollTop()>950){
+                    $(".huiyuan").css({"top":0})
+                }else if($(this).scrollTop()<=950){
+                    $(".huiyuan").css({"top":-100})
+                }
+            });
+        })
+    </script>
+</head>
+<body>
+<header>
+    <div class="inner clear">
+        <div class="jd fl">
+            <a class="a1" href="index.html">
+                <i class="icon iconfont icon-house"></i>
+                京东首页
+            </a>
+            <a href="">
+                <i class="icon iconfont icon-zuobiao"></i>
+                北京
+            </a>
+        </div>
+        <ul class="ul2">
+            <li class="li1">
+                <div class="box1">
+                    <a href="">你好，请登录</a>
+                    <i class="icon1 plus"></i>
+                    <i class="icon iconfont icon-xiangxia"></i>
+                </div>
+                <div class="box2" style="padding-bottom: 0">
+                    <div class="box2-top">
+                        <div class="img1">
+                            <img src="img/no-img_mid_.jpg" alt="" style="width: 60px">
+                        </div>
+                        <p class="tc">
+                            <a class="icon1 user" href=""></a>
+                            <a class="logout" href="">退出</a>
+                        </p>
+                        <p class="tc">
+                            <a href="">开通PLUS 平均省1012元/年></a>
+                        </p>
+                    </div>
+                    <div class="box2-bottom">
+                        <i class="zy prev"><</i>
+                        <i class="zy next">></i>
+                        <div class="warp">
+                        <ul>
+                            <li>
+                                <i class="icon2 kt"></i>
+                                <p>开通正式版</p>
+                            </li>
+                            <li>
+                                <i class="icon2 yf"></i>
+                                <p>运费免单</p>
+                            </li>
+                            <li>
+                                <i class="icon2 sr"></i>
+                                <p>生日特权</p>
+                            </li>
+                            <li>
+                                <i class="icon2 sd"></i>
+                                <p>闪电付款</p>
+                            </li>
+                            <li>
+                                <i class="icon2 sm"></i>
+                                <p>上门换新</p>
+                            </li>
+                            <li>
+                                <i class="icon2 jx"></i>
+                                <p>京享值礼包</p>
+                            </li>
+                            <li>
+                                <i class="icon2 gb"></i>
+                                <p>贵宾专线</p>
+                            </li>
+                            <li>
+                                <i class="icon2 shuang"></i>
+                                <p>运费双免</p>
+                            </li>
+                        </ul>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li class="spacer"></li>
+            <li>
+                <div class="box1">
+                    <a href="">我的订单</a>
+                </div>
+            </li>
+            <li class="spacer"></li>
+            <li class="li1">
+                <div class="box1">
+                    <a href="">我的京东</a>
+                    <i class="icon iconfont icon-xiangxia"></i>
+                </div>
+                <div class="box2">
+                    <ul class="ul3 clear" style="border-bottom: 1px dotted #eee">
+                        <li>
+                            <a href="">待处理订单</a>
+                        </li>
+                        <li>
+                            <a href="">消息</a>
+                        </li>
+                        <li>
+                            <a href="">返修退换货</a>
+                        </li>
+                        <li>
+                            <a href="">我的问答</a>
+                        </li>
+                        <li>
+                            <a href="">降价商品</a>
+                        </li>
+                        <li>
+                            <a href="">我的关注</a>
+                        </li>
+                    </ul>
+                    <ul class="ul3">
+                        <li>
+                            <a href="">我的京东</a>
+                        </li>
+                        <li>
+                            <a href="">我的优惠券</a>
+                        </li>
+                        <li>
+                            <a href="">我的白条</a>
+                        </li>
+                        <li>
+                            <a href="">我的理财</a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+            <li class="spacer"></li>
+            <li>
+                <div class="box1">
+                    <a href="">京东会员</a>
+                </div>
+            </li>
+            <li class="spacer"></li>
+            <li class="li1">
+                <div class="box1">
+                    <a href="">企业采购</a>
+                    <i class="icon iconfont icon-xiangxia"></i>
+                </div>
+                <div class="box2 qiye">
+                    <ul class="ul3 qiye">
+                        <li>
+                            <a href="">企业购</a>
+                        </li>
+                        <li>
+                            <a href="">商用场景管</a>
+                        </li>
+                        <li>
+                            <a href="">工业品</a>
+                        </li>
+                        <li>
+                            <a href="">礼品卡</a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+            <li class="spacer"></li>
+            <li class="li1">
+                <div class="box1">
+                    <a href="">客户服务</a>
+                    <i class="icon iconfont icon-xiangxia"></i>
+                </div>
+                <div class="box2 kehu">
+                    <ul class="ul3 kehu clear" style="border-bottom: 1px dotted #eee">
+                        <li>
+                            客户
+                        </li>
+                        <li>
+                            <a href="">帮助中心</a>
+                        </li>
+                        <li>
+                            <a href="">售后服务</a>
+                        </li>
+                        <li>
+                            <a href="">在线客服</a>
+                        </li>
+                        <li>
+                            <a href="">意见建议</a>
+                        </li>
+                        <li>
+                            <a href="">电话客服</a>
+                        </li>
+                        <li>
+                            <a href="">客服邮箱</a>
+                        </li>
+                        <li>
+                            <a href="">金融咨询</a>
+                        </li>
+                        <li>
+                            <a href="">全球售客服</a>
+                        </li>
+                    </ul>
+                    <ul class="ul3 kehu">
+                        <li>
+                            商户
+                        </li>
+                        <li>
+                            <a href="">合作招商</a>
+                        </li>
+                        <li>
+                            <a href="">学习中心</a>
+                        </li>
+                        <li>
+                            <a href="">商家后台</a>
+                        </li>
+                        <li>
+                            <a href="">京麦工作台</a>
+                        </li>
+                        <li>
+                            <a href="">商家帮助</a>
+                        </li>
+                        <li>
+                            <a href="">规则平台</a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+            <li class="spacer"></li>
+            <li class="li1">
+                <div class="box1">
+                    <a href="">网站导航</a>
+                    <i class="icon iconfont icon-xiangxia"></i>
+                </div>
+                <div class="box2 daohang">
+                    <div class="dh">
+                        <div class="gd">
+                            <h3>特色主题</h3>
+                            <ul>
+                                <li>京东试用</li>
+                                <li>京东会员</li>
+                                <li>装机大师</li>
+                                <li>优惠券</li>
+                                <li>京东金融科技</li>
+                            </ul>
+                            <ul>
+                                <li>京东试用</li>
+                                <li>京东会员</li>
+                                <li>装机大师</li>
+                                <li>秒杀</li>
+                                <li>In货推荐</li>
+                            </ul>
+                            <ul>
+                                <li>京东试用</li>
+                                <li>京东会员</li>
+                                <li>装机大师</li>
+                                <li>闪购</li>
+                                <li>陪伴计划</li>
+                            </ul>
+                            <ul>
+                                <li>京东试用</li>
+                                <li>京东会员</li>
+                                <li>装机大师</li>
+                                <li>印尼站</li>
+                                <li>出海招商</li>
+                            </ul>
+                        </div>
+                        <div class="gd">
+                            <h3>行业频道</h3>
+                            <ul>
+                                <li>手机</li>
+                                <li>电脑办公</li>
+                                <li>服装城</li>
+                                <li>母婴</li>
+                                <li>整车</li>
+                            </ul>
+                            <ul>
+                                <li>智能数码</li>
+                                <li>家用电器</li>
+                                <li>京东生鲜</li>
+                                <li>食品</li>
+                                <li>图书</li>
+                            </ul>
+                            <ul>
+                                <li>手机</li>
+                                <li>电脑办公</li>
+                                <li>服装城</li>
+                                <li>母婴</li>
+                                <li>整车</li>
+                            </ul>
+                        </div>
+                        <div class="gd">
+                            <h3>生活服务</h3>
+                            <ul>
+                                <li>手机</li>
+                                <li>电脑办公</li>
+                                <li>服装城</li>
+                                <li>母婴</li>
+                                <li>整车</li>
+                            </ul>
+                            <ul>
+                                <li>智能数码</li>
+                                <li>家用电器</li>
+                                <li>京东生鲜</li>
+                                <li>食品</li>
+                                <li>图书</li>
+                            </ul>
+                            <ul>
+                                <li>手机</li>
+                                <li>电脑办公</li>
+                                <li>服装城</li>
+                                <li>母婴</li>
+                                <li>整车</li>
+                            </ul>
+                        </div>
+                        <div class="gd" style="border: none">
+                            <h3>更多精选</h3>
+                            <ul>
+                                <li>手机</li>
+                                <li>电脑办公</li>
+                                <li>服装城</li>
+                                <li>母婴</li>
+                                <li>整车</li>
+                            </ul>
+                            <ul>
+                                <li>智能数码</li>
+                                <li>家用电器</li>
+                                <li>京东生鲜</li>
+                                <li>食品</li>
+                                <li>图书</li>
+                            </ul>
+                            <ul>
+                                <li>手机</li>
+                                <li>电脑办公</li>
+                                <li>服装城</li>
+                                <li>母婴</li>
+                                <li>整车</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li class="spacer"></li>
+            <li class="li1">
+                <a href="">手机京东</a>
+            </li>
+        </ul>
+    </div>
+</header>
+<div class="huiyuan">
+    <div class="inner clear">
+        <div class="logo"></div>
+        <div class="kaitong">
+            <i class="th"></i>
+            <h3>立即开通</h3>
+            <p class="p1">
+                您的京享值为1314,专属价
+                <span class="money">￥ 188</span>
+                /年
+                <span class="old">￥299/年</span>
+            </p>
+        </div>
+    </div>
+</div>
+<div class="banner">
+    <div class="banner-layer">
+        <div class="inner clear">
+            <div class="logo">
+                </div>
+            <div class="banner-cont fr">
+                <a class="sy" href="PLUS.html">PLUS 会员首页</a>
+                <a class="qy" href="">PLUS 权益</a>
+            </div>
+        </div>
+    </div>
+    <div class="inner">
+    <div class="quan">
+        <h1>PLUS会员 享专属特权</h1>
+        <p class="xf">尊敬的jd_188326vnp，根据您最近一年的消费情况</p>
+        <p class="kai">
+            开通预计可省
+            <span>￥1012.00</span>
+        </p>
+        <ul class="clear">
+            <li>
+               <i class="aqy"></i>
+                <p class="kai-title">爱奇艺</p>
+                <p class="kai-js">VIP会员</p>
+            </li>
+            <li>
+               <i class="jing"></i>
+                <p class="kai-title">10倍</p>
+                <p class="kai-js">购物返京豆</p>
+            </li>
+            <li>
+               <i class="you"></i>
+                <p class="kai-title">100元/月</p>
+                <p class="kai-js">全品类优惠卷</p>
+            </li>
+            <li>
+               <i class="yun"></i>
+                <p class="kai-title">360元/年</p>
+                <p class="kai-js">运费卷礼包</p>
+            </li>
+            <li>
+               <i class="zhe"></i>
+                <p class="kai-title">服饰9折</p>
+                <p class="kai-js">每月折扣卷</p>
+            </li>
+            <li>
+               <i class="bw"></i>
+                <p class="kai-title">百万</p>
+                <p class="kai-js">会员价商品</p>
+            </li>
+            <li>
+               <i class="kf"></i>
+                <p class="kai-title">24小时</p>
+                <p class="kai-js">专属客服</p>
+            </li>
+            <li>
+               <i class="mf"></i>
+                <p class="kai-title">免费</p>
+                <p class="kai-js">上门退换货</p>
+            </li>
+            <li>
+               <i class="zs"></i>
+                <p class="kai-title">生活特权</p>
+                <p class="kai-js">专属生活福利</p>
+            </li>
+            <li>
+               <i class="gw"></i>
+                <p class="kai-title">PLUS DAY</p>
+                <p class="kai-js">专属购物节</p>
+            </li>
+        </ul>
+        <div class="kaitong">
+            <i class="th"></i>
+            <h3>立即开通</h3>
+            <p class="p1">
+                您的京享值为1314,专属价
+                <span class="money">￥ 188</span>
+                /年
+                <span class="old">￥299/年</span>
+            </p>
+        </div>
+    </div>
+    </div>
+</div>
+<div class="content">
+    <div class="cont1">
+        <div class="inner">
+            <div class="www">
+                <img class="left-img" src="img/5a2119efN5d118605.png" alt="">
+                <img class="right-img" src="img/5a2119efN1e26ca77.png" alt="">
+                <div class="yh">
+                        <p class="xxl">开通即领</p>
+                        <p class="xl">140元全品类券</p>
+                        <p class="line"></p>
+                        <p class="m">开通后24小时内领取</p>
+                    <div>
+                        <ul class="ul4">
+                            <li>
+                                <div class="money1">
+                                    <span>￥</span>100
+                                </div>
+                                <div class="mj">满2000可用</div>
+                                <div class="tj">
+                                    全品类（特例商品除外）
+                                </div>
+                                <div class="ling"><a href="">立即领取</a></div>
+                            </li>
+                            <li>
+                                <div class="money1">
+                                    <span>￥</span>
+                                    40
+                                </div>
+                                <div class="mj">满600可用</div>
+                                <div class="tj">
+                                    全品类（特例商品除外）
+                                </div>
+                                <div class="ling"><a href="">立即领取</a></div>
+                            </li>
+                            <li>
+                                <div class="money1">
+                                    <span>￥</span>
+                                    300
+                                </div>
+                                <div class="mj">满499可用</div>
+                                <div class="tj">
+                                    仅可购买家装建材部分商品
+                                </div>
+                                <div class="ling"><a href="">立即领取</a></div>
+                            </li>
+                            <li>
+                                <div class="money1">
+                                    <span>￥</span>
+                                    149
+                                </div>
+                                <div class="mj">满199可用</div>
+                                <div class="tj">
+                                    仅可购买厨具，家纺，家居日用商品
+                                </div>
+                                <div class="ling"><a href="">立即领取</a></div>
+                            </li>
+                            <li>
+                                <div class="money1">
+                                    <span>￥</span>
+                                    100
+                                </div>
+                                <div class="mj">满399可用</div>
+                                <div class="tj">
+                                    仅可购买酒水部分商品
+                                </div>
+                                <div class="ling"><a href="">立即领取</a></div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="lunbo">
+                    <ul class="img2">
+                        <li class="now">
+                            <a href="">
+                                <img src="img/5be94e33Nfa0ecd1a.jpg" alt="">
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <img src="img/5be97e97N3a9479d8.png" alt="">
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <img src="img/5be94e69Nffc4ab81.png" alt="">
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <img src="img/5be94eb9N83e80b88.png" alt="">
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <img src="img/e8c99e0bddfc5acc.jpg" alt="">
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <img src="img/d4a30b73b79a5a05.png" alt="">
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <img src="img/3a7f543b301da09c.png" alt="">
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <img src="img/5be97f08Nff5ec796.png" alt="">
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="page page2">
+                        <li class="now"></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+        <div class="te">
+            <div class="next1"></div>
+        </div>
+    </div>
+    <div class="bg cont2">
+        <div class="inner">
+            <div class="cont-title fl">
+                <h2>爱奇艺</h2>
+                <p class="vip">VIP会员</p>
+                <p class="line"></p>
+                <p class="sxk">精彩大片随心看</p>
+                <a href="">
+                    开通领取
+                </a>
+            </div>
+            <div class="cont-cont fr">
+                <div class="xq clear">
+                    <a href="">权益详情 ></a>
+                </div>
+                <div class="quanyi">
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="bg cont3">
+        <div class="inner">
+            <div class="cont-title fl">
+                <i class="dixian">可抵现</i>
+                <h2>10倍</h2>
+                <p class="vip">购物返京豆</p>
+                <p class="line"></p>
+                <p class="sxk">买的越多返的越多</p>
+                <a href="">
+                    开通赚京豆
+                </a>
+            </div>
+            <div class="cont-cont fr">
+                <div class="xq clear">
+                    <a href="">权益详情 ></a>
+                </div>
+                <div class="quanyi">
+                    <h4>PLUS会员平均每年可获得约<span>220元</span>京豆</h4>
+                    <i class="vs"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="bg cont4">
+        <div class="inner">
+            <div class="cont-title fl">
+                <h2>100<span>元/月</span></h2>
+                <p class="vip">全品类优惠券</p>
+                <p class="line"></p>
+                <p class="sxk">五种面额任意组合领取</p>
+                <a href="">
+                    开通领取
+                </a>
+            </div>
+            <div class="cont-cont fr">
+                <div class="xq clear">
+                    <a href="">权益详情 ></a>
+                </div>
+                <div class="quanyi clear">
+                    <div class="cont-top">
+                        <div class="a2">
+                            <a href="">
+                            <p class="type">= 全品类 =</p>
+                                <p class="money2">￥50</p>
+                                <p class="mj1">满1200可用</p>
+                            </a>
+                        </div>
+                        <div class="a2">
+                            <a href="">
+                                <p class="type">= 全品类 =</p>
+                                <p class="money2">￥50</p>
+                                <p class="mj1">满1000可用</p>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="cont-bottom clear">
+                        <div class="a2">
+                            <a href="">
+                                <p class="type">= 全品类 =</p>
+                                <p class="money2">￥50</p>
+                                <p class="mj1">满1200可用</p>
+                            </a>
+                        </div>
+                        <div class="a2">
+                            <a href="">
+                                <p class="type">= 全品类 =</p>
+                                <p class="money2">￥50</p>
+                                <p class="mj1">满1000可用</p>
+                            </a>
+                        </div>
+                        <div class="a2">
+                            <a href="">
+                                <p class="type">= 全品类 =</p>
+                                <p class="money2">￥50</p>
+                                <p class="mj1">满1000可用</p>
+                            </a>
+                        </div>
+                    </div>
+                    <p class="zhu">注：每月100元额度仅当月有效</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="bg cont5 cont3">
+        <div class="inner">
+            <div class="cont-title fl">
+                <h2>360<span>元/年</span></h2>
+                <p class="vip">运费券大礼包</p>
+                <p class="line"></p>
+                <p class="sxk">随心下单 给您任性</p>
+                <a href="">
+                    开通领取
+                </a>
+            </div>
+            <div class="cont-cont fr">
+                <div class="xq clear">
+                    <a href="">权益详情 ></a>
+                </div>
+                <div class="quanyi">
+                    <div class="zx">
+                        <a href="">
+                            <div>
+                                <h3>尊享包邮</h3>
+                                <div>
+                                    <i class="layer">
+                                        可叠加
+                                    </i>
+                                    <p class="p4">
+                                        <span class="money2">￥6</span>
+                                        运费卷
+                                    </p>
+                                    <i class="layer1"></i>
+                                    <p class="p2">每月5张，自动到账</p>
+                                </div>
+                            </div>
+                            <div>
+                                <h3>抵各种运费</h3>
+                                <div class="yunf">
+                                    <p class="p3">普通运费</p>
+                                    <p class="p3">续重运费</p>
+                                    <p class="p3">京准达运费</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="bg cont6 cont4">
+        <div class="inner">
+            <div class="cont-title fl">
+                <h2>服饰9折</h2>
+                <p class="vip">每月折扣券</p>
+                <p class="line"></p>
+                <p class="sxk">优惠叠加 享你所想</p>
+                <a href="">
+                    开通领取
+                </a>
+            </div>
+            <div class="cont-cont fr">
+                <div class="xq clear">
+                    <a href="">权益详情 ></a>
+                </div>
+                <div class="quanyi clear">
+                    <a href="">
+                        <img src="img/5a6058caNf8880010.png" alt="">
+                    </a>
+                    <p class="zhu">注：每月100元额度仅当月有效</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="bg cont7 cont3">
+        <div class="inner">
+            <div class="cont-title fl">
+                <h2>百万</h2>
+                <p class="vip">会员价商品</p>
+                <p class="line"></p>
+                <p class="sxk">专享优惠 省钱升级</p>
+                <a href="">
+                    开通立享
+                </a>
+            </div>
+            <div class="cont-cont fr">
+                <div class="xq clear">
+                    <a href="">权益详情 ></a>
+                </div>
+                <div class="quanyi">
+                        <div class="zy prev2"><</div>
+                        <div class="zy next2">></div>
+                    <ul class="ul5">
+                        <li>
+                            <a>
+                                <img src="img/4cd789c9b3ee4582.jpg" alt="">
+                                <div class="hy1">
+                                    <p class="p-name">
+                                        印尼进口 皇冠（danisa）丹麦曲奇饼干特别礼盒装888g
+                                    </p>
+                                    <p class="price-plus">
+                                        <span>￥</span>
+                                        199.00
+                                        <i></i>
+                                    </p>
+                                    <p class="price">
+                                        京东价：¥9388.00
+                                    </p>
+                                    <p class="p-bottom">
+                                        距结束12小时59分
+                                        <i class="jt"></i>
+                                    </p>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a>
+                                <img src="img/5bbc909bNfba091c3.jpg" alt="">
+                                <div class="hy1">
+                                    <p class="p-name">
+                                        【现货】金碧波大闸蟹 公蟹3.7两 母蟹2.7两 4对8只礼盒装现货实物螃蟹 去绳净重
+                                    </p>
+                                    <p class="price-plus">
+                                        <span>￥</span>
+                                        166.00
+                                        <i></i>
+                                    </p>
+                                    <p class="price">
+                                        京东价：¥199.00
+                                    </p>
+                                    <p class="p-bottom">
+                                        距结束12小时59分
+                                        <i class="jt"></i>
+                                    </p>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a>
+                                <img src="img/5b0fd9dbNeadc1b8d.jpg" alt="">
+                                <div class="hy1">
+                                    <p class="p-name">
+                                        善存(Centrum) 佳维片家庭装 复合维生素 1.33g*120片
+                                    </p>
+                                    <p class="price-plus">
+                                        <span>￥</span>
+                                        119.00
+                                        <i></i>
+                                    </p>
+                                    <p class="price">
+                                        京东价：¥159.00
+                                    </p>
+                                    <p class="p-bottom">
+                                        距结束12小时59分
+                                        <i class="jt"></i>
+                                    </p>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a>
+                                <img src="img/5b89057dN7c68cbed.jpg" alt="">
+                                <div class="hy1">
+                                    <p class="p-name">
+                                        惠普（HP）暗影精灵4代 15.6英寸游戏笔记本电脑（i5-8300H 8G 128G+1TB GTX1060 6G 144Hz G-Sync IPS）
+                                    </p>
+                                    <p class="price-plus">
+                                        <span>￥</span>
+                                        7499.00
+                                        <i></i>
+                                    </p>
+                                    <p class="price">
+                                        京东价：¥8199.00
+                                    </p>
+                                    <p class="p-bottom">
+                                        距结束12小时59分
+                                        <i class="jt"></i>
+                                    </p>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a>
+                                <img src="img/5b89057dN7c68cbed.jpg" alt="">
+                                <div class="hy1">
+                                    <p class="p-name">
+                                        5be5213fN8d7070ab.jpg
+                                    </p>
+                                    <p class="price-plus">
+                                        <span>￥</span>
+                                        37.90
+                                        <i></i>
+                                    </p>
+                                    <p class="price">
+                                        京东价：¥39.00
+                                    </p>
+                                    <p class="p-bottom">
+                                        距结束12小时59分
+                                        <i class="jt"></i>
+                                    </p>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a>
+                                <img src="img/5b4d60b8Na45522c7.jpg" alt="">
+                                <div class="hy1">
+                                    <p class="p-name">
+                                        RND 电动滑板车 10英寸大轮 进口电芯 手控机械碟刹 成人/学生/体感车/平衡车/电动车/折叠车/踏板车/运动版
+                                    </p>
+                                    <p class="price-plus">
+                                        <span>￥</span>
+                                        1599.00
+                                        <i></i>
+                                    </p>
+                                    <p class="price">
+                                        京东价：¥1799.00
+                                    </p>
+                                    <p class="p-bottom">
+                                        距结束12小时59分
+                                        <i class="jt"></i>
+                                    </p>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="page page1">
+                       <li class="now"></li>
+                        <li></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="bg cont8">
+        <div class="inner">
+            <div class="cont-title fl">
+                <h2>生活特权</h2>
+                <p class="vip">专属生活福利</p>
+                <p class="line"></p>
+                <p class="sxk">海量福利 应有尽有</p>
+                <a href="">
+                    开通领取
+                </a>
+            </div>
+            <div class="cont-cont fr">
+                <div class="xq clear">
+                    <a href="">权益详情 ></a>
+                </div>
+                <div class="quanyi">
+                    <a href=""></a>
+                    <img src="img/5b6ac629N1429117e.png" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="bg cont9">
+        <div class="inner">
+            <div class="cont-title fl">
+                <h2>24<span>小时</span></h2>
+                <p class="vip">专属客服</p>
+                <p class="line"></p>
+                <p class="sxk">全心全意为您服务</p>
+                <a href="">
+                    开通立享
+                </a>
+            </div>
+            <div class="cont-cont fr">
+                <div class="xq clear">
+                    <a href="">权益详情 ></a>
+                </div>
+                <div class="quanyi">
+                    <ul>
+                        <li>
+                            <div>
+                                <i class="i1"></i>
+                                <p class="p5">在线客服</p>
+                                <p class="p6" style="margin-top: 20px">专属客服经理</p>
+                                <p class="p6">优先解答疑问</p>
+                            </div>
+                        </li>
+                        <li style="margin-left: 60px">
+                            <div>
+                                <i class="i1 i2"></i>
+                                <p class="p5">在线客服</p>
+                                <p class="p6" style="margin-top: 20px">专属客服经理</p>
+                                <p class="p6">优先解答疑问</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="cont cont10">
+        <div class="inner">
+            <div class="cont-title fl">
+                <a class="kh" href=""></a>
+                <a class="lx" href="">
+                    开通领取
+                </a>
+            </div>
+            <div class="cont-cont fr">
+                <div class="quanyi">
+                    <a href=""></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="bg cont11 cont3">
+        <div class="inner">
+            <div class="cont-title fl">
+                <h2>免费</h2>
+                <p class="vip">上门退换货</p>
+                <p class="line"></p>
+                <p class="sxk">尊贵服务 售后无忧</p>
+                <a href="">
+                    开通立享
+                </a>
+            </div>
+            <div class="cont-cont fr">
+                <div class="xq clear">
+                    <a href="">权益详情 ></a>
+                </div>
+                <div class="quanyi">
+                    <div class="bg2">
+                        <div class="bg1">
+                            <h2>退货 · 取货 · 换货 · 维修</h2>
+                            <p class="p7">- 为您打造优质的京东售后体验 -</p>
+                            <ul class="ul15">
+                                <li>
+                                    <i class="i3"></i>
+                                    <p class="p7">7天无理由退货</p>
+                                    <p class="p8">商品范围比普通用户多20万种</p>
+                                </li>
+                                <li>
+                                    <i class="i4"></i>
+                                    <p class="p7">双向免运费</p>
+                                    <p class="p8">退货不花钱</p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<footer>
+    <div class="footer-title">
+        <div class="inner">
+            <ul class="ul8">
+                <li>
+                    <i class="icon4 duo"></i>
+                    <p>品类齐全，轻松购物</p>
+                </li>
+                <li>
+                    <i class="icon4 kuai"></i>
+                    <p>多仓直发，极速配送</p>
+                </li>
+                <li>
+                    <i class="icon4 hao"></i>
+                    <p>正品行货，精致服务</p>
+                </li>
+                <li>
+                    <i class="icon4 sheng"></i>
+                    <p>天天低价，畅选无忧</p>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-cont">
+        <div class="inner clear">
+            <dl>
+                <dt>购物流程</dt>
+                <dd><a href="">
+                    购物流程
+                </a></dd>
+                <dd><a href="">
+                    会员介绍
+                </a></dd>
+                <dd><a href="">
+                    生活旅行
+                </a></dd>
+                <dd><a href="">
+                    常见问题
+                </a></dd>
+                <dd><a href="">
+                    大家电
+                </a></dd>
+                <dd><a href="">
+                    联系客服
+                </a></dd>
+            </dl>
+            <dl>
+                <dt>配送方式</dt>
+                <dd><a href="">
+                    上门自提
+                </a></dd>
+                <dd><a href="">
+                    211限时达
+                </a></dd>
+                <dd><a href="">
+                    配送服务查询
+                </a></dd>
+                <dd><a href="">
+                    配送费收取标准
+                </a></dd>
+                <dd><a href="">
+                    海外配送
+                </a></dd>
+            </dl>
+            <dl>
+                <dt>支付方式</dt>
+                <dd><a href="">
+                    货到付款
+                </a></dd>
+                <dd><a href="">
+                    在线支付
+                </a></dd>
+                <dd><a href="">
+                    分期付款
+                </a></dd>
+                <dd><a href="">
+                    邮局汇款
+                </a></dd>
+                <dd><a href="">
+                    公司转账
+                </a></dd>
+            </dl>
+            <dl>
+                <dt>售后服务</dt>
+                <dd><a href="">
+                    售后政策
+                </a></dd>
+                <dd><a href="">
+                    价格保护
+                </a></dd>
+                <dd><a href="">
+                    退款说明
+                </a></dd>
+                <dd><a href="">
+                    返修/退换货
+                </a></dd>
+                <dd><a href="">
+                    取消订单
+                </a></dd>
+            </dl>
+            <dl>
+                <dt>特色服务</dt>
+                <dd><a href="">
+                    夺宝岛
+                </a></dd>
+                <dd><a href="">
+                    IY装机
+                </a></dd>
+                <dd><a href="">
+                    延保服务
+                </a></dd>
+                <dd><a href="">
+                    京东E卡
+                </a></dd>
+                <dd><a href="">
+                    京东通信
+                </a></dd>
+                <dd><a href="">
+                    京东JD+
+                </a></dd>
+            </dl>
+            <div class="icon4 map">
+                <h5>京东自营覆盖区县</h5>
+                <p>京东已向全国2661个区县提供自营配送服务，支持货到付款、POS机刷卡和售后上门服务。</p>
+                <p class="p1"><a href="">查看详情 ></a></p>
+            </div>
+        </div>
+    </div>
+    <div class="footer-foot">
+        <div class="inner">
+            <p class="p12">
+                <a href="">关于我们</a>
+                <span>|</span>
+                <a href="">联系我们</a>
+                <span>|</span>
+                <a href="">联系客服</a>
+                <span>|</span>
+                <a href="">合作招商</a>
+                <span>|</span>
+                <a href="">商家帮助</a>
+                <span>|</span>
+                <a href="">营销中心</a>
+                <span>|</span>
+                <a href="">手机京东</a>
+                <span>|</span>
+                <a href="">友情链接</a>
+                <span>|</span>
+                <a href="">销售联盟</a>
+                <span>|</span>
+                <a href="">京东社区</a>
+                <span>|</span>
+                <a href="">风险监测</a>
+                <span>|</span>
+                <a href="">隐私政策</a>
+                <span>|</span>
+                <a href="">京东公益</a>
+                <span>|</span>
+                <a href="">English Site</a>
+                <span>|</span>
+                <a href="">Media & IR</a>
+            </p>
+            <p class="p12 p13" style="margin-top: 10px">
+                <a href="">京公网安备 11000002000088号</a>
+                <span>|</span>
+                <a href="">京ICP证070359号</a>
+                <span>|</span>
+                <a href="">互联网药品信息服务资格证编号(京)-经营性-2014-0008</a>
+                <span>|</span>
+                <a href="">新出发京零 字第大120007号</a>
+            </p>
+            <p class="p12 p13">
+                <a href="">互联网出版许可证编号新出网证(京)字150号</a>
+                <span>|</span>
+                <a href="">出版物经营许可证</a>
+                <span>|</span>
+                <a href="">网络文化经营许可证京网文[2014]2148-348号</a>
+                <span>|</span>
+                <a href="">违法和不良信息举报电话：4006561155</a>
+            </p>
+            <p class="p12 p13">
+                <a href="">Copyright © 2004 - 2018  京东JD.com 版权所有</a>
+                <span>|</span>
+                <a href="">消费者维权热线：4006067733</a>
+                <span></span>
+                <a href="">经营证照</a>
+                <span>|</span>
+                <a href="">(京)网械平台备字(2018)第00003号</a>
+                <span>|</span>
+                <a href="">营业执照</a>
+            </p>
+            <p class="p12 p13">
+                <a href="">京公网安备 11000002000088号</a>
+                <span>|</span>
+                <a href="">京ICP证070359号</a>
+                <span>|</span>
+                <a href="">互联网药品信息服务资格证编号(京)-经营性-2014-0008</a>
+                <span>|</span>
+                <a href="">新出发京零 字第大120007号</a>
+            </p>
+            <p class="p12 p13">
+                <a href="">
+                    <i class="icon4 gs"></i>
+                    Global Site
+                </a>
+                <span>|</span>
+                <a href="">
+                    <i class="icon4 gp"></i>
+                    Сайт России
+                </a>
+                <span>|</span>
+                <a href="">
+                    <i class="icon4 si"></i>
+                    Situs Indonesia
+                </a>
+                <span>|</span>
+                <a href="">
+                    <i class="icon4 sde"></i>
+                    Sitio de España
+                </a>
+                <span>|</span>
+                <a href="">
+                    <i class="icon4 kbd"></i>
+                    เว็บไซต์ประเทศไทย
+                </a>
+            </p>
+            <p class="p12 p13">
+                <span class="span1">京东旗下网站：</span>
+                <a href="">京东钱包</a>
+                <span>|</span>
+                <a href="">京东云</a>
+            </p>
+            <div class="footer-logo">
+                <a class="icon4 kx" href=""></a>
+                <a class="icon4 jc" href=""></a>
+                <a class="icon4 cx" href=""></a>
+                <a class="icon4 jb" href=""></a>
+                <a class="icon4 app" href=""></a>
+            </div>
+        </div>
+    </div>
+</footer>
+</body>
+</html>

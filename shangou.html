@@ -1,0 +1,870 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>京东闪购、品牌特卖、优选品牌、限时折扣</title>
+    <link rel="stylesheet" href="iconfont/font_ovonboivus/iconfont.css">
+    <link rel="stylesheet" href="iconfont/font_yz5exxzj4t/iconfont.css">
+    <link rel="stylesheet" href="iconfont/font_rf8355oiun7/iconfont.css">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/shangou.css">
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+    <script src="js/jquery.min.js"></script>
+    <script>
+        $(function(){
+            $(window).scroll(function(){
+                if ($(this).scrollTop()>400){
+                    $(".banner1").css({"top":0,"left":0})
+                }else if ($(this).scrollTop()<=400){
+                    $(".banner1").css({"top":-150,"left":0})
+                }
+            })
+        })
+        $(function () {
+            var tIndex1 = 0;
+            var bIndex1 = 0;
+            var timer2 = null;
+            $(".bannerBox .ul2 li:first-child").clone(true).appendTo($(".bannerBox ul"))
+
+            function next() {
+                tIndex1++
+                bIndex1++
+                if (tIndex1 > $(".bannerBox  .ul2 li").length - 1) {
+                    tIndex1 = 1
+                    $(".bannerBox ul").css("left", 0).stop().animate({
+                        "left": -700
+                    })
+                }
+                if (tIndex1 == $(".bannerBox  .ul2 li").length - 1) {
+                    bIndex1 = 0
+                }
+                $(".bannerBox  .ul2").stop().animate({
+                    "left": -tIndex1 * 700
+                })
+            }
+
+            $(".zy1 .btnLeft").click(function () {
+                tIndex1--;
+                bIndex1--;
+                if (tIndex1 < 0) {
+                    tIndex1 = $(".bannerBox  .ul2  li").length - 2
+                    $(".bannerBox  .ul2").css("left", -2800).stop().animate({
+                        "left": -2100
+                    })
+                }
+                if (bIndex1 < 0) {
+                    bIndex1 = $(".bannerBox  .ul2 li").length - 2
+                }
+                $(".bannerBox .ul1").stop().animate({
+                    "left": -tIndex1 * 700
+                })
+            })
+            $(".zy1 .btnRight").click(function () {
+                next()
+            })
+
+            timer2 = setInterval(next, 3000)
+            $(".bannerBox").hover(function () {
+                clearInterval(timer2);
+            }, function () {
+                timer2 = setInterval(next, 3000)
+            })
+        })
+        $(function () {
+            $.ajax({
+                url: "js/shanggou.json",
+                type: "get",
+                dataType: "json",
+                jsonp: 'jsonpCallback',
+                async: true
+            }).done(function (result) {
+                var data = result;
+                var data1 = data.list;
+                console.log(data.list);
+                for (let i = 0; i < data1.length; i++) {
+                    var str=`
+                     <li>
+                        <div class="img fl">
+                            <img src="${data1[i].img}" style="width: 120px" alt="">
+                        </div>
+                        <div class="tit fl">
+                            <h5>${data1[i].title}</h5>
+                            <p>
+                                ${data1[i].nprice}
+                                <span>${data1[i].oprice}</span>
+                                ${data1[i].jian}
+                            </p>
+                        </div>
+                    </li>`;
+                    $(".cont2-cont ul").append(str)
+                    }
+            });
+        });
+    </script>
+</head>
+<body>
+<header>
+    <div class="inner">
+        <div class="jd fl">
+            <a class="a1" href="index.html">
+                <i class="icon iconfont icon-house"></i>
+                京东首页
+            </a>
+            <a href="">
+                <i class="icon iconfont icon-zuobiao"></i>
+                北京
+            </a>
+        </div>
+        <ul class="fr">
+            <li><a href="">jd_188326vnp</a> 退出</li>
+            <li>
+                <i class="xian"></i>
+                <a href="">我的订单</a></li>
+            <li>
+                <div class="box1">
+                    <i class="xian"></i>
+                    <i class="icon1 sj"></i>
+                    手机闪购
+                    <i class="jiantou icon1"></i>
+                </div>
+                <div class="box2">
+                    <a href="">
+                    <img src="img/sg.png" alt="">
+                    </a>
+                    <a href="">
+                        <img src="img/下载 (19).png" alt="">
+                    </a>
+                </div>
+            </li>
+        </ul>
+    </div>
+</header>
+<div class="banner">
+    <div class="inner clear">
+        <div class="logo fl">
+            <a href="">
+                <img src="img/logo.png" style="height: 60px" alt="">
+            </a>
+        </div>
+        <ul class="ul1 fl">
+            <li class="now">
+                <a href="">精选</a>
+                <i></i>
+            </li>
+            <li>
+                <a href="">潮流服饰</a>
+                <i></i>
+            </li>
+            <li>
+                <a href="">品质鞋包</a>
+                <i></i>
+            </li>
+            <li>
+                <a href="">运动户外</a>
+                <i></i>
+            </li>
+            <li>
+                <a href="">居家生活</a>
+                <i></i>
+            </li>
+            <li>
+                <a href="">更多</a>
+                <i></i>
+            </li>
+        </ul>
+        <div class="gwc fr">
+            <a href="">
+                我的购物车
+                <i class="gw"></i>
+            </a>
+        </div>
+    </div>
+</div>
+<div class="banner1">
+    <div class="inner clear">
+        <div class="logo fl">
+            <a href="">
+                <img src="img/logo.png" style="height: 60px" alt="">
+            </a>
+        </div>
+        <ul class="ul1 fl">
+            <li class="now">
+                <a href="">精选</a>
+                <i></i>
+            </li>
+            <li>
+                <a href="">潮流服饰</a>
+                <i></i>
+            </li>
+            <li>
+                <a href="">品质鞋包</a>
+                <i></i>
+            </li>
+            <li>
+                <a href="">运动户外</a>
+                <i></i>
+            </li>
+            <li>
+                <a href="">居家生活</a>
+                <i></i>
+            </li>
+            <li>
+                <a href="">更多</a>
+                <i></i>
+            </li>
+        </ul>
+        <div class="gwc fr">
+            <a href="">
+                我的购物车
+                <i class="gw"></i>
+            </a>
+        </div>
+    </div>
+</div>
+<div>
+    <a href=""><img src="img/5be9494aNc6ac101b.jpg!q80" style="width: 100%" alt=""></a>
+</div>
+<div class="content">
+    <div class="cont1">
+        <div class="inner">
+            <div class="cont1-title">
+                <i class="dian"></i>
+                <h3>今日上新</h3>
+                <p>每天十点准时开始</p>
+            </div>
+            <div class="cont1-cont">
+                <div class="cont1-left">
+                    <div class="cont-c">
+                        <p class="cont-layer">
+                            剩余
+                            <span>02</span>
+                            天
+                        </p>
+                        <img src="img/aaf833ef4dbf1937.png" style="width: 90%;margin-top: 20px" alt="">
+                        <h3>鸭鸭品牌闪购专场</h3>
+                        <strong>低至2折</strong>
+                    </div>
+                </div>
+                <div class="bannerBox">
+                    <ul class="clearfix ul2">
+                        <li class="clear">
+                            <div class="ts">
+                                <img src="img/5be8ef5fN2d33ca7c.jpg!q80" alt="">
+                                <p class="p1">鸭鸭（YAYA）2018秋冬新款中长款狐狸毛领甜美韩版羽绒服女B-58221 黑色 175/96A</p>
+                                <p class="p2">
+                                    ￥899<span>￥1470</span>闪降581元
+                                </p>
+                            </div>
+                            <div class="ts">
+                                <img src="img/5be8f02eNbeccd9b4.jpg!q80" alt="">
+                                <p class="p1">鸭鸭（YAYA）2018秋冬新款时尚气质女装大毛领中长款羽绒服B-57620 橄榄绿 175/96A</p>
+                                <p class="p2">
+                                    ￥899<span>￥1470</span>闪降581元
+                                </p>
+                            </div>
+                            <div class="ts">
+                                <img src="img/54f704afc201c054.jpg!q80" alt="">
+                                <p class="p1">鸭鸭（YAYA）2018新款时尚轻薄连帽羽绒服女短款秋冬羽绒服B-58202 橡皮红 180/100A</p>
+                                <p class="p2">
+                                    ￥899<span>￥1470</span>闪降581元
+                                </p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="ts">
+                                <img src="img/acc1d226865ff033.jpg!q80" alt="">
+                                <p class="p1">鸭鸭（YAYA）2018秋冬新款中长款狐狸毛领甜美韩版羽绒服女B-58221 黑色 175/96A</p>
+                                <p class="p2">
+                                    ￥899<span>￥1470</span>闪降581元
+                                </p>
+                            </div>
+                            <div class="ts">
+                                <img src="img/870a968313089d87.jpg!q80" alt="">
+                                <p class="p1">鸭鸭（YAYA）2018秋冬新款时尚气质女装大毛领中长款羽绒服B-57620 橄榄绿 175/96A</p>
+                                <p class="p2">
+                                    ￥899<span>￥1470</span>闪降581元
+                                </p>
+                            </div>
+                            <div class="ts">
+                                <img src="img/022ee4a21453eee8.jpg!q80" alt="">
+                                <p class="p1">鸭鸭（YAYA）2018新款时尚轻薄连帽羽绒服女短款秋冬羽绒服B-58202 橡皮红 180/100A</p>
+                                <p class="p2">
+                                    ￥899<span>￥1470</span>闪降581元
+                                </p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="ts">
+                                <img src="img/aeb09552ff3b1312.jpg!q80" alt="">
+                                <p class="p1">鸭鸭（YAYA）2018秋冬新款中长款狐狸毛领甜美韩版羽绒服女B-58221 黑色 175/96A</p>
+                                <p class="p2">
+                                    ￥899<span>￥1470</span>闪降581元
+                                </p>
+                            </div>
+                            <div class="ts">
+                                <img src="img/85624b1147bfbb3e.jpg!q80" alt="">
+                                <p class="p1">鸭鸭（YAYA）2018秋冬新款时尚气质女装大毛领中长款羽绒服B-57620 橄榄绿 175/96A</p>
+                                <p class="p2">
+                                    ￥899<span>￥1470</span>闪降581元
+                                </p>
+                            </div>
+                            <div class="ts">
+                                <img src="img/a80feeb99cfeaf19.jpg!q80" alt="">
+                                <p class="p1">鸭鸭（YAYA）2018新款时尚轻薄连帽羽绒服女短款秋冬羽绒服B-58202 橡皮红 180/100A</p>
+                                <p class="p2">
+                                    ￥899<span>￥1470</span>闪降581元
+                                </p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="ts">
+                                <img src="img/cabbc05360048727.jpg!q80" alt="">
+                                <p class="p1">鸭鸭（YAYA）2018秋冬新款中长款狐狸毛领甜美韩版羽绒服女B-58221 黑色 175/96A</p>
+                                <p class="p2">
+                                    ￥899<span>￥1470</span>闪降581元
+                                </p>
+                            </div>
+                            <div class="ts">
+                                <img src="img/90b6abd0629c209f.jpg!q80" alt="">
+                                <p class="p1">鸭鸭（YAYA）2018秋冬新款时尚气质女装大毛领中长款羽绒服B-57620 橄榄绿 175/96A</p>
+                                <p class="p2">
+                                    ￥899<span>￥1470</span>闪降581元
+                                </p>
+                            </div>
+                            <div class="ts">
+                                <img src="img/2937d3b75addbaac.jpg!q80" alt="">
+                                <p class="p1">鸭鸭（YAYA）2018新款时尚轻薄连帽羽绒服女短款秋冬羽绒服B-58202 橡皮红 180/100A</p>
+                                <p class="p2">
+                                    ￥899<span>￥1470</span>闪降581元
+                                </p>
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="btn zy zy1">
+                        <i class="icon iconfont icon-zuo prev btnLeft"></i>
+                        <i class="icon iconfont icon-right next btnRight"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="cont1-cont">
+                <div class="cont1-left">
+                    <div class="cont-c">
+                        <p class="cont-layer">
+                            剩余
+                            <span>02</span>
+                            天
+                        </p>
+                        <img src="img/aaf833ef4dbf1937.png" style="width: 90%;margin-top: 20px" alt="">
+                        <h3>鸭鸭品牌闪购专场</h3>
+                        <strong>低至2折</strong>
+                    </div>
+                </div>
+                <div class="bannerBox">
+                    <ul class="clearfix">
+                        <li class="clear">
+                            <div class="ts">
+                                <img src="img/5be8ef5fN2d33ca7c.jpg!q80" alt="">
+                                <p class="p1">鸭鸭（YAYA）2018秋冬新款中长款狐狸毛领甜美韩版羽绒服女B-58221 黑色 175/96A</p>
+                                <p class="p2">
+                                    ￥899<span>￥1470</span>闪降581元
+                                </p>
+                            </div>
+                            <div class="ts">
+                                <img src="img/5be8f02eNbeccd9b4.jpg!q80" alt="">
+                                <p class="p1">鸭鸭（YAYA）2018秋冬新款时尚气质女装大毛领中长款羽绒服B-57620 橄榄绿 175/96A</p>
+                                <p class="p2">
+                                    ￥899<span>￥1470</span>闪降581元
+                                </p>
+                            </div>
+                            <div class="ts">
+                                <img src="img/54f704afc201c054.jpg!q80" alt="">
+                                <p class="p1">鸭鸭（YAYA）2018新款时尚轻薄连帽羽绒服女短款秋冬羽绒服B-58202 橡皮红 180/100A</p>
+                                <p class="p2">
+                                    ￥899<span>￥1470</span>闪降581元
+                                </p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="ts">
+                                <img src="img/acc1d226865ff033.jpg!q80" alt="">
+                                <p class="p1">鸭鸭（YAYA）2018秋冬新款中长款狐狸毛领甜美韩版羽绒服女B-58221 黑色 175/96A</p>
+                                <p class="p2">
+                                    ￥899<span>￥1470</span>闪降581元
+                                </p>
+                            </div>
+                            <div class="ts">
+                                <img src="img/870a968313089d87.jpg!q80" alt="">
+                                <p class="p1">鸭鸭（YAYA）2018秋冬新款时尚气质女装大毛领中长款羽绒服B-57620 橄榄绿 175/96A</p>
+                                <p class="p2">
+                                    ￥899<span>￥1470</span>闪降581元
+                                </p>
+                            </div>
+                            <div class="ts">
+                                <img src="img/022ee4a21453eee8.jpg!q80" alt="">
+                                <p class="p1">鸭鸭（YAYA）2018新款时尚轻薄连帽羽绒服女短款秋冬羽绒服B-58202 橡皮红 180/100A</p>
+                                <p class="p2">
+                                    ￥899<span>￥1470</span>闪降581元
+                                </p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="ts">
+                                <img src="img/aeb09552ff3b1312.jpg!q80" alt="">
+                                <p class="p1">鸭鸭（YAYA）2018秋冬新款中长款狐狸毛领甜美韩版羽绒服女B-58221 黑色 175/96A</p>
+                                <p class="p2">
+                                    ￥899<span>￥1470</span>闪降581元
+                                </p>
+                            </div>
+                            <div class="ts">
+                                <img src="img/85624b1147bfbb3e.jpg!q80" alt="">
+                                <p class="p1">鸭鸭（YAYA）2018秋冬新款时尚气质女装大毛领中长款羽绒服B-57620 橄榄绿 175/96A</p>
+                                <p class="p2">
+                                    ￥899<span>￥1470</span>闪降581元
+                                </p>
+                            </div>
+                            <div class="ts">
+                                <img src="img/a80feeb99cfeaf19.jpg!q80" alt="">
+                                <p class="p1">鸭鸭（YAYA）2018新款时尚轻薄连帽羽绒服女短款秋冬羽绒服B-58202 橡皮红 180/100A</p>
+                                <p class="p2">
+                                    ￥899<span>￥1470</span>闪降581元
+                                </p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="ts">
+                                <img src="img/cabbc05360048727.jpg!q80" alt="">
+                                <p class="p1">鸭鸭（YAYA）2018秋冬新款中长款狐狸毛领甜美韩版羽绒服女B-58221 黑色 175/96A</p>
+                                <p class="p2">
+                                    ￥899<span>￥1470</span>闪降581元
+                                </p>
+                            </div>
+                            <div class="ts">
+                                <img src="img/90b6abd0629c209f.jpg!q80" alt="">
+                                <p class="p1">鸭鸭（YAYA）2018秋冬新款时尚气质女装大毛领中长款羽绒服B-57620 橄榄绿 175/96A</p>
+                                <p class="p2">
+                                    ￥899<span>￥1470</span>闪降581元
+                                </p>
+                            </div>
+                            <div class="ts">
+                                <img src="img/2937d3b75addbaac.jpg!q80" alt="">
+                                <p class="p1">鸭鸭（YAYA）2018新款时尚轻薄连帽羽绒服女短款秋冬羽绒服B-58202 橡皮红 180/100A</p>
+                                <p class="p2">
+                                    ￥899<span>￥1470</span>闪降581元
+                                </p>
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="btn zy">
+                        <i class="icon iconfont icon-zuo prev btnLeft"></i>
+                        <i class="icon iconfont icon-right next btnRight"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="cont1-cont">
+                <div class="cont1-left">
+                    <div class="cont-c">
+                        <p class="cont-layer">
+                            剩余
+                            <span>02</span>
+                            天
+                        </p>
+                        <img src="img/aaf833ef4dbf1937.png" style="width: 90%;margin-top: 20px" alt="">
+                        <h3>鸭鸭品牌闪购专场</h3>
+                        <strong>低至2折</strong>
+                    </div>
+                </div>
+                <div class="bannerBox">
+                    <ul class="clearfix">
+                        <li class="clear">
+                            <div class="ts">
+                                <img src="img/5be8ef5fN2d33ca7c.jpg!q80" alt="">
+                                <p class="p1">鸭鸭（YAYA）2018秋冬新款中长款狐狸毛领甜美韩版羽绒服女B-58221 黑色 175/96A</p>
+                                <p class="p2">
+                                    ￥899<span>￥1470</span>闪降581元
+                                </p>
+                            </div>
+                            <div class="ts">
+                                <img src="img/5be8f02eNbeccd9b4.jpg!q80" alt="">
+                                <p class="p1">鸭鸭（YAYA）2018秋冬新款时尚气质女装大毛领中长款羽绒服B-57620 橄榄绿 175/96A</p>
+                                <p class="p2">
+                                    ￥899<span>￥1470</span>闪降581元
+                                </p>
+                            </div>
+                            <div class="ts">
+                                <img src="img/54f704afc201c054.jpg!q80" alt="">
+                                <p class="p1">鸭鸭（YAYA）2018新款时尚轻薄连帽羽绒服女短款秋冬羽绒服B-58202 橡皮红 180/100A</p>
+                                <p class="p2">
+                                    ￥899<span>￥1470</span>闪降581元
+                                </p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="ts">
+                                <img src="img/acc1d226865ff033.jpg!q80" alt="">
+                                <p class="p1">鸭鸭（YAYA）2018秋冬新款中长款狐狸毛领甜美韩版羽绒服女B-58221 黑色 175/96A</p>
+                                <p class="p2">
+                                    ￥899<span>￥1470</span>闪降581元
+                                </p>
+                            </div>
+                            <div class="ts">
+                                <img src="img/870a968313089d87.jpg!q80" alt="">
+                                <p class="p1">鸭鸭（YAYA）2018秋冬新款时尚气质女装大毛领中长款羽绒服B-57620 橄榄绿 175/96A</p>
+                                <p class="p2">
+                                    ￥899<span>￥1470</span>闪降581元
+                                </p>
+                            </div>
+                            <div class="ts">
+                                <img src="img/022ee4a21453eee8.jpg!q80" alt="">
+                                <p class="p1">鸭鸭（YAYA）2018新款时尚轻薄连帽羽绒服女短款秋冬羽绒服B-58202 橡皮红 180/100A</p>
+                                <p class="p2">
+                                    ￥899<span>￥1470</span>闪降581元
+                                </p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="ts">
+                                <img src="img/aeb09552ff3b1312.jpg!q80" alt="">
+                                <p class="p1">鸭鸭（YAYA）2018秋冬新款中长款狐狸毛领甜美韩版羽绒服女B-58221 黑色 175/96A</p>
+                                <p class="p2">
+                                    ￥899<span>￥1470</span>闪降581元
+                                </p>
+                            </div>
+                            <div class="ts">
+                                <img src="img/85624b1147bfbb3e.jpg!q80" alt="">
+                                <p class="p1">鸭鸭（YAYA）2018秋冬新款时尚气质女装大毛领中长款羽绒服B-57620 橄榄绿 175/96A</p>
+                                <p class="p2">
+                                    ￥899<span>￥1470</span>闪降581元
+                                </p>
+                            </div>
+                            <div class="ts">
+                                <img src="img/a80feeb99cfeaf19.jpg!q80" alt="">
+                                <p class="p1">鸭鸭（YAYA）2018新款时尚轻薄连帽羽绒服女短款秋冬羽绒服B-58202 橡皮红 180/100A</p>
+                                <p class="p2">
+                                    ￥899<span>￥1470</span>闪降581元
+                                </p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="ts">
+                                <img src="img/cabbc05360048727.jpg!q80" alt="">
+                                <p class="p1">鸭鸭（YAYA）2018秋冬新款中长款狐狸毛领甜美韩版羽绒服女B-58221 黑色 175/96A</p>
+                                <p class="p2">
+                                    ￥899<span>￥1470</span>闪降581元
+                                </p>
+                            </div>
+                            <div class="ts">
+                                <img src="img/90b6abd0629c209f.jpg!q80" alt="">
+                                <p class="p1">鸭鸭（YAYA）2018秋冬新款时尚气质女装大毛领中长款羽绒服B-57620 橄榄绿 175/96A</p>
+                                <p class="p2">
+                                    ￥899<span>￥1470</span>闪降581元
+                                </p>
+                            </div>
+                            <div class="ts">
+                                <img src="img/2937d3b75addbaac.jpg!q80" alt="">
+                                <p class="p1">鸭鸭（YAYA）2018新款时尚轻薄连帽羽绒服女短款秋冬羽绒服B-58202 橡皮红 180/100A</p>
+                                <p class="p2">
+                                    ￥899<span>￥1470</span>闪降581元
+                                </p>
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="btn zy">
+                        <i class="icon iconfont icon-zuo prev btnLeft"></i>
+                        <i class="icon iconfont icon-right next btnRight"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="cont1-cont">
+                <div class="cont1-left">
+                    <div class="cont-c">
+                        <p class="cont-layer">
+                            剩余
+                            <span>02</span>
+                            天
+                        </p>
+                        <img src="img/aaf833ef4dbf1937.png" style="width: 90%;margin-top: 20px" alt="">
+                        <h3>鸭鸭品牌闪购专场</h3>
+                        <strong>低至2折</strong>
+                    </div>
+                </div>
+                <div class="bannerBox">
+                    <ul class="clearfix">
+                        <li class="clear">
+                            <div class="ts">
+                                <img src="img/5be8ef5fN2d33ca7c.jpg!q80" alt="">
+                                <p class="p1">鸭鸭（YAYA）2018秋冬新款中长款狐狸毛领甜美韩版羽绒服女B-58221 黑色 175/96A</p>
+                                <p class="p2">
+                                    ￥899<span>￥1470</span>闪降581元
+                                </p>
+                            </div>
+                            <div class="ts">
+                                <img src="img/5be8f02eNbeccd9b4.jpg!q80" alt="">
+                                <p class="p1">鸭鸭（YAYA）2018秋冬新款时尚气质女装大毛领中长款羽绒服B-57620 橄榄绿 175/96A</p>
+                                <p class="p2">
+                                    ￥899<span>￥1470</span>闪降581元
+                                </p>
+                            </div>
+                            <div class="ts">
+                                <img src="img/54f704afc201c054.jpg!q80" alt="">
+                                <p class="p1">鸭鸭（YAYA）2018新款时尚轻薄连帽羽绒服女短款秋冬羽绒服B-58202 橡皮红 180/100A</p>
+                                <p class="p2">
+                                    ￥899<span>￥1470</span>闪降581元
+                                </p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="ts">
+                                <img src="img/acc1d226865ff033.jpg!q80" alt="">
+                                <p class="p1">鸭鸭（YAYA）2018秋冬新款中长款狐狸毛领甜美韩版羽绒服女B-58221 黑色 175/96A</p>
+                                <p class="p2">
+                                    ￥899<span>￥1470</span>闪降581元
+                                </p>
+                            </div>
+                            <div class="ts">
+                                <img src="img/870a968313089d87.jpg!q80" alt="">
+                                <p class="p1">鸭鸭（YAYA）2018秋冬新款时尚气质女装大毛领中长款羽绒服B-57620 橄榄绿 175/96A</p>
+                                <p class="p2">
+                                    ￥899<span>￥1470</span>闪降581元
+                                </p>
+                            </div>
+                            <div class="ts">
+                                <img src="img/022ee4a21453eee8.jpg!q80" alt="">
+                                <p class="p1">鸭鸭（YAYA）2018新款时尚轻薄连帽羽绒服女短款秋冬羽绒服B-58202 橡皮红 180/100A</p>
+                                <p class="p2">
+                                    ￥899<span>￥1470</span>闪降581元
+                                </p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="ts">
+                                <img src="img/aeb09552ff3b1312.jpg!q80" alt="">
+                                <p class="p1">鸭鸭（YAYA）2018秋冬新款中长款狐狸毛领甜美韩版羽绒服女B-58221 黑色 175/96A</p>
+                                <p class="p2">
+                                    ￥899<span>￥1470</span>闪降581元
+                                </p>
+                            </div>
+                            <div class="ts">
+                                <img src="img/85624b1147bfbb3e.jpg!q80" alt="">
+                                <p class="p1">鸭鸭（YAYA）2018秋冬新款时尚气质女装大毛领中长款羽绒服B-57620 橄榄绿 175/96A</p>
+                                <p class="p2">
+                                    ￥899<span>￥1470</span>闪降581元
+                                </p>
+                            </div>
+                            <div class="ts">
+                                <img src="img/a80feeb99cfeaf19.jpg!q80" alt="">
+                                <p class="p1">鸭鸭（YAYA）2018新款时尚轻薄连帽羽绒服女短款秋冬羽绒服B-58202 橡皮红 180/100A</p>
+                                <p class="p2">
+                                    ￥899<span>￥1470</span>闪降581元
+                                </p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="ts">
+                                <img src="img/cabbc05360048727.jpg!q80" alt="">
+                                <p class="p1">鸭鸭（YAYA）2018秋冬新款中长款狐狸毛领甜美韩版羽绒服女B-58221 黑色 175/96A</p>
+                                <p class="p2">
+                                    ￥899<span>￥1470</span>闪降581元
+                                </p>
+                            </div>
+                            <div class="ts">
+                                <img src="img/90b6abd0629c209f.jpg!q80" alt="">
+                                <p class="p1">鸭鸭（YAYA）2018秋冬新款时尚气质女装大毛领中长款羽绒服B-57620 橄榄绿 175/96A</p>
+                                <p class="p2">
+                                    ￥899<span>￥1470</span>闪降581元
+                                </p>
+                            </div>
+                            <div class="ts">
+                                <img src="img/2937d3b75addbaac.jpg!q80" alt="">
+                                <p class="p1">鸭鸭（YAYA）2018新款时尚轻薄连帽羽绒服女短款秋冬羽绒服B-58202 橡皮红 180/100A</p>
+                                <p class="p2">
+                                    ￥899<span>￥1470</span>闪降581元
+                                </p>
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="btn zy">
+                        <i class="icon iconfont icon-zuo prev btnLeft"></i>
+                        <i class="icon iconfont icon-right next btnRight"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="cont1-cont">
+                <div class="cont1-left">
+                    <div class="cont-c">
+                        <p class="cont-layer">
+                            剩余
+                            <span>02</span>
+                            天
+                        </p>
+                        <img src="img/aaf833ef4dbf1937.png" style="width: 90%;margin-top: 20px" alt="">
+                        <h3>鸭鸭品牌闪购专场</h3>
+                        <strong>低至2折</strong>
+                    </div>
+                </div>
+                <div class="bannerBox">
+                    <ul class="clearfix">
+                        <li class="clear">
+                            <div class="ts">
+                                <img src="img/5be8ef5fN2d33ca7c.jpg!q80" alt="">
+                                <p class="p1">鸭鸭（YAYA）2018秋冬新款中长款狐狸毛领甜美韩版羽绒服女B-58221 黑色 175/96A</p>
+                                <p class="p2">
+                                    ￥899<span>￥1470</span>闪降581元
+                                </p>
+                            </div>
+                            <div class="ts">
+                                <img src="img/5be8f02eNbeccd9b4.jpg!q80" alt="">
+                                <p class="p1">鸭鸭（YAYA）2018秋冬新款时尚气质女装大毛领中长款羽绒服B-57620 橄榄绿 175/96A</p>
+                                <p class="p2">
+                                    ￥899<span>￥1470</span>闪降581元
+                                </p>
+                            </div>
+                            <div class="ts">
+                                <img src="img/54f704afc201c054.jpg!q80" alt="">
+                                <p class="p1">鸭鸭（YAYA）2018新款时尚轻薄连帽羽绒服女短款秋冬羽绒服B-58202 橡皮红 180/100A</p>
+                                <p class="p2">
+                                    ￥899<span>￥1470</span>闪降581元
+                                </p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="ts">
+                                <img src="img/acc1d226865ff033.jpg!q80" alt="">
+                                <p class="p1">鸭鸭（YAYA）2018秋冬新款中长款狐狸毛领甜美韩版羽绒服女B-58221 黑色 175/96A</p>
+                                <p class="p2">
+                                    ￥899<span>￥1470</span>闪降581元
+                                </p>
+                            </div>
+                            <div class="ts">
+                                <img src="img/870a968313089d87.jpg!q80" alt="">
+                                <p class="p1">鸭鸭（YAYA）2018秋冬新款时尚气质女装大毛领中长款羽绒服B-57620 橄榄绿 175/96A</p>
+                                <p class="p2">
+                                    ￥899<span>￥1470</span>闪降581元
+                                </p>
+                            </div>
+                            <div class="ts">
+                                <img src="img/022ee4a21453eee8.jpg!q80" alt="">
+                                <p class="p1">鸭鸭（YAYA）2018新款时尚轻薄连帽羽绒服女短款秋冬羽绒服B-58202 橡皮红 180/100A</p>
+                                <p class="p2">
+                                    ￥899<span>￥1470</span>闪降581元
+                                </p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="ts">
+                                <img src="img/aeb09552ff3b1312.jpg!q80" alt="">
+                                <p class="p1">鸭鸭（YAYA）2018秋冬新款中长款狐狸毛领甜美韩版羽绒服女B-58221 黑色 175/96A</p>
+                                <p class="p2">
+                                    ￥899<span>￥1470</span>闪降581元
+                                </p>
+                            </div>
+                            <div class="ts">
+                                <img src="img/85624b1147bfbb3e.jpg!q80" alt="">
+                                <p class="p1">鸭鸭（YAYA）2018秋冬新款时尚气质女装大毛领中长款羽绒服B-57620 橄榄绿 175/96A</p>
+                                <p class="p2">
+                                    ￥899<span>￥1470</span>闪降581元
+                                </p>
+                            </div>
+                            <div class="ts">
+                                <img src="img/a80feeb99cfeaf19.jpg!q80" alt="">
+                                <p class="p1">鸭鸭（YAYA）2018新款时尚轻薄连帽羽绒服女短款秋冬羽绒服B-58202 橡皮红 180/100A</p>
+                                <p class="p2">
+                                    ￥899<span>￥1470</span>闪降581元
+                                </p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="ts">
+                                <img src="img/cabbc05360048727.jpg!q80" alt="">
+                                <p class="p1">鸭鸭（YAYA）2018秋冬新款中长款狐狸毛领甜美韩版羽绒服女B-58221 黑色 175/96A</p>
+                                <p class="p2">
+                                    ￥899<span>￥1470</span>闪降581元
+                                </p>
+                            </div>
+                            <div class="ts">
+                                <img src="img/90b6abd0629c209f.jpg!q80" alt="">
+                                <p class="p1">鸭鸭（YAYA）2018秋冬新款时尚气质女装大毛领中长款羽绒服B-57620 橄榄绿 175/96A</p>
+                                <p class="p2">
+                                    ￥899<span>￥1470</span>闪降581元
+                                </p>
+                            </div>
+                            <div class="ts">
+                                <img src="img/2937d3b75addbaac.jpg!q80" alt="">
+                                <p class="p1">鸭鸭（YAYA）2018新款时尚轻薄连帽羽绒服女短款秋冬羽绒服B-58202 橡皮红 180/100A</p>
+                                <p class="p2">
+                                    ￥899<span>￥1470</span>闪降581元
+                                </p>
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="btn zy">
+                        <i class="icon iconfont icon-zuo prev btnLeft"></i>
+                        <i class="icon iconfont icon-right next btnRight"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="cont2">
+        <div class="inner">
+            <div class="cont1-title">
+                <i class="dian"></i>
+                <h3>热销榜单</h3>
+                <p>TOP 10 单品</p>
+            </div>
+            <div class="cont2-cont" style="margin: 0">
+                <ul class="clear">
+
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="cont3">
+        <div class="inner">
+            <div class="cont1-title">
+                <i class="dian"></i>
+                <h3>活动特卖</h3>
+                <p>引领时尚 触底低价</p>
+            </div>
+            <div class="cont3-cont" style="margin: 0">
+                <ul class="ul3 clear">
+                    <li>
+                        <div class="cont1-left" style="background:url('img/0dc2c7ae9466611e.jpg!q70')100% top">
+                            <div class="cont-c">
+                                <p class="cont-layer">
+                                    剩余
+                                    <span>02</span>
+                                    天
+                                </p>
+                                <img src="img/aaf833ef4dbf1937.png" style="width: 90%;margin-top: 20px" alt="">
+                                <h3>鸭鸭品牌闪购专场</h3>
+                                <strong>低至2折</strong>
+                            </div>
+                        </div>
+                        <div class="banner" id="b04">
+                            <ul>
+                                <li>
+
+                                </li>
+                                <li>
+
+                                </li>
+                                <li>
+
+                                </li>
+                                <li>
+
+                                </li>
+                                <li>
+
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<div style="height: 5000px"></div>
+</body>
+</html>
